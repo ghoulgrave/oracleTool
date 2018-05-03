@@ -15,9 +15,19 @@ namespace oracleTool
         public MainForm()
         {
             InitializeComponent();
+            init();
+        }
+        private void init(){
             welcome.Parent = null;
             about.Parent = null;
             mhelp.Parent = null;
+
+            cx_bkjsyl.Parent = null;
+            cx_bkjszwz.Parent = null;
+            cx_maxcostsql.Parent = null;
+
+            ml_awr.Parent = null;
+
             menuStrip1.Visible = false;
         }
         private void 测试按钮ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,5 +101,30 @@ namespace oracleTool
                 }
             }
         }
+
+        private void 表空间使用率查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cx_bkjsyl.Parent = tabControl1;
+            tabControlPages(cx_bkjsyl);
+        }
+
+        private void 表空间所在位置查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cx_bkjszwz.Parent = tabControl1;
+            tabControlPages(cx_bkjszwz);
+        }
+
+        private void 最消耗CPU前十语句查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cx_maxcostsql.Parent = tabControl1;
+            tabControlPages(cx_maxcostsql);
+        }
+
+        private void aWR报告导出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ml_awr.Parent = tabControl1;
+            tabControlPages(ml_awr);
+        }
+
     }
 }

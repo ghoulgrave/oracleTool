@@ -41,20 +41,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.about = new System.Windows.Forms.TabPage();
             this.关闭当前页面 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.关闭页面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.mhelp = new System.Windows.Forms.TabPage();
             this.helpText = new System.Windows.Forms.RichTextBox();
+            this.cx_bkjsyl = new System.Windows.Forms.TabPage();
+            this.cx_bkjszwz = new System.Windows.Forms.TabPage();
+            this.cx_maxcostsql = new System.Windows.Forms.TabPage();
+            this.ml_awr = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.功能1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.功能2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.表空间使用率查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.表空间所在位置查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.最消耗CPU前十语句查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aWR报告导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.排查问题ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.使用帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +69,6 @@
             this.测试按钮ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,6 +90,10 @@
             this.tabControl1.Controls.Add(this.welcome);
             this.tabControl1.Controls.Add(this.about);
             this.tabControl1.Controls.Add(this.mhelp);
+            this.tabControl1.Controls.Add(this.cx_bkjsyl);
+            this.tabControl1.Controls.Add(this.cx_bkjszwz);
+            this.tabControl1.Controls.Add(this.cx_maxcostsql);
+            this.tabControl1.Controls.Add(this.ml_awr);
             this.tabControl1.Location = new System.Drawing.Point(0, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -113,7 +123,7 @@
             this.panel1.Controls.Add(this.username);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(102, 40);
+            this.panel1.Location = new System.Drawing.Point(108, 40);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(557, 411);
             this.panel1.TabIndex = 4;
@@ -203,6 +213,15 @@
             this.welcome.Text = "欢迎";
             this.welcome.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(311, 222);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "welcome";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // about
             // 
             this.about.ContextMenuStrip = this.关闭当前页面;
@@ -269,6 +288,46 @@
             this.helpText.TabIndex = 0;
             this.helpText.Text = "测试";
             // 
+            // cx_bkjsyl
+            // 
+            this.cx_bkjsyl.Location = new System.Drawing.Point(4, 22);
+            this.cx_bkjsyl.Name = "cx_bkjsyl";
+            this.cx_bkjsyl.Padding = new System.Windows.Forms.Padding(3);
+            this.cx_bkjsyl.Size = new System.Drawing.Size(776, 473);
+            this.cx_bkjsyl.TabIndex = 4;
+            this.cx_bkjsyl.Text = "表空间使用率查询";
+            this.cx_bkjsyl.UseVisualStyleBackColor = true;
+            // 
+            // cx_bkjszwz
+            // 
+            this.cx_bkjszwz.Location = new System.Drawing.Point(4, 22);
+            this.cx_bkjszwz.Name = "cx_bkjszwz";
+            this.cx_bkjszwz.Padding = new System.Windows.Forms.Padding(3);
+            this.cx_bkjszwz.Size = new System.Drawing.Size(776, 473);
+            this.cx_bkjszwz.TabIndex = 5;
+            this.cx_bkjszwz.Text = "表空间所在位置查询";
+            this.cx_bkjszwz.UseVisualStyleBackColor = true;
+            // 
+            // cx_maxcostsql
+            // 
+            this.cx_maxcostsql.Location = new System.Drawing.Point(4, 22);
+            this.cx_maxcostsql.Name = "cx_maxcostsql";
+            this.cx_maxcostsql.Padding = new System.Windows.Forms.Padding(3);
+            this.cx_maxcostsql.Size = new System.Drawing.Size(776, 473);
+            this.cx_maxcostsql.TabIndex = 6;
+            this.cx_maxcostsql.Text = "最消耗CPU前十语句查询";
+            this.cx_maxcostsql.UseVisualStyleBackColor = true;
+            // 
+            // ml_awr
+            // 
+            this.ml_awr.Location = new System.Drawing.Point(4, 22);
+            this.ml_awr.Name = "ml_awr";
+            this.ml_awr.Padding = new System.Windows.Forms.Padding(3);
+            this.ml_awr.Size = new System.Drawing.Size(776, 473);
+            this.ml_awr.TabIndex = 7;
+            this.ml_awr.Text = "AWR报告导出";
+            this.ml_awr.UseVisualStyleBackColor = true;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -311,35 +370,54 @@
             // 备份ToolStripMenuItem
             // 
             this.备份ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.功能1ToolStripMenuItem,
-            this.功能2ToolStripMenuItem});
+            this.表空间使用率查询ToolStripMenuItem,
+            this.表空间所在位置查询ToolStripMenuItem,
+            this.最消耗CPU前十语句查询ToolStripMenuItem});
             this.备份ToolStripMenuItem.Name = "备份ToolStripMenuItem";
-            this.备份ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
-            this.备份ToolStripMenuItem.Text = "备份";
+            this.备份ToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
+            this.备份ToolStripMenuItem.Text = "查询功能";
             // 
-            // 功能1ToolStripMenuItem
+            // 表空间使用率查询ToolStripMenuItem
             // 
-            this.功能1ToolStripMenuItem.Name = "功能1ToolStripMenuItem";
-            this.功能1ToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
-            this.功能1ToolStripMenuItem.Text = "功能1";
+            this.表空间使用率查询ToolStripMenuItem.Name = "表空间使用率查询ToolStripMenuItem";
+            this.表空间使用率查询ToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.表空间使用率查询ToolStripMenuItem.Text = "表空间使用率查询";
+            this.表空间使用率查询ToolStripMenuItem.Click += new System.EventHandler(this.表空间使用率查询ToolStripMenuItem_Click);
             // 
-            // 功能2ToolStripMenuItem
+            // 表空间所在位置查询ToolStripMenuItem
             // 
-            this.功能2ToolStripMenuItem.Name = "功能2ToolStripMenuItem";
-            this.功能2ToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
-            this.功能2ToolStripMenuItem.Text = "功能2";
+            this.表空间所在位置查询ToolStripMenuItem.Name = "表空间所在位置查询ToolStripMenuItem";
+            this.表空间所在位置查询ToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.表空间所在位置查询ToolStripMenuItem.Text = "表空间所在位置查询";
+            this.表空间所在位置查询ToolStripMenuItem.Click += new System.EventHandler(this.表空间所在位置查询ToolStripMenuItem_Click);
+            // 
+            // 最消耗CPU前十语句查询ToolStripMenuItem
+            // 
+            this.最消耗CPU前十语句查询ToolStripMenuItem.Name = "最消耗CPU前十语句查询ToolStripMenuItem";
+            this.最消耗CPU前十语句查询ToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.最消耗CPU前十语句查询ToolStripMenuItem.Text = "最消耗CPU前十语句查询";
+            this.最消耗CPU前十语句查询ToolStripMenuItem.Click += new System.EventHandler(this.最消耗CPU前十语句查询ToolStripMenuItem_Click);
             // 
             // 查询ToolStripMenuItem
             // 
+            this.查询ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aWR报告导出ToolStripMenuItem});
             this.查询ToolStripMenuItem.Name = "查询ToolStripMenuItem";
-            this.查询ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
-            this.查询ToolStripMenuItem.Text = "查询";
+            this.查询ToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
+            this.查询ToolStripMenuItem.Text = "命令执行";
+            // 
+            // aWR报告导出ToolStripMenuItem
+            // 
+            this.aWR报告导出ToolStripMenuItem.Name = "aWR报告导出ToolStripMenuItem";
+            this.aWR报告导出ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.aWR报告导出ToolStripMenuItem.Text = "AWR报告导出";
+            this.aWR报告导出ToolStripMenuItem.Click += new System.EventHandler(this.aWR报告导出ToolStripMenuItem_Click);
             // 
             // 排查问题ToolStripMenuItem
             // 
             this.排查问题ToolStripMenuItem.Name = "排查问题ToolStripMenuItem";
             this.排查问题ToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
-            this.排查问题ToolStripMenuItem.Text = "排查问题";
+            this.排查问题ToolStripMenuItem.Text = "备份恢复";
             // 
             // 配置ToolStripMenuItem
             // 
@@ -380,15 +458,6 @@
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
             this.closeToolStripMenuItem.Text = "close";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(311, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "welcome";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -433,8 +502,8 @@
         private System.Windows.Forms.ToolStripMenuItem 使用帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 测试按钮ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 功能1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 功能2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 表空间使用率查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 表空间所在位置查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 配置ToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -455,6 +524,12 @@
         private System.Windows.Forms.TabPage mhelp;
         private System.Windows.Forms.RichTextBox helpText;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem 最消耗CPU前十语句查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aWR报告导出ToolStripMenuItem;
+        private System.Windows.Forms.TabPage cx_bkjsyl;
+        private System.Windows.Forms.TabPage cx_bkjszwz;
+        private System.Windows.Forms.TabPage cx_maxcostsql;
+        private System.Windows.Forms.TabPage ml_awr;
     }
 }
 
