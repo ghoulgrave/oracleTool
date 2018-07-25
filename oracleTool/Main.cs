@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OracleClient;
+using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace oracleTool
@@ -74,11 +74,12 @@ namespace oracleTool
                 toolStripStatusLabel2.Text = "数据库信息 : " + uername + "@" + dataBase;
                 tabPage1.Parent = null;
                 welcome.Parent = tabControl1;
-                this.WindowState = FormWindowState.Maximized;
+                //this.WindowState = FormWindowState.Maximized;
                 menuStrip1.Visible = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 label4.Text = "登录失败,请确认你的登录信息";
                 label4.ForeColor = Color.Red;
             }
@@ -89,7 +90,7 @@ namespace oracleTool
         {
             if (CONN == null)
             {
-                CONN = new OracleConnection("data source=" + dataBase + ";user=" + uername + ";password=" + pass + ";");
+                CONN = new OracleConnection("data source=" + dataBase + ";User Id=" + uername + ";Password=" + pass + ";");
             }
             return CONN;
         }
@@ -97,7 +98,8 @@ namespace oracleTool
 
         private void exit_Click(object sender, EventArgs e)
         {
-            if(CONN != null){
+            if (CONN != null)
+            {
                 try
                 {
                     CONN.Close();
@@ -105,7 +107,7 @@ namespace oracleTool
                 catch (Exception)
                 {
                 }
-               
+
             }
             Application.Exit();
         }
@@ -125,6 +127,7 @@ namespace oracleTool
                 case "helpText": mhelp.Parent = null; break;
                 case "richTextBox1": about.Parent = null; break;
                 case "cx_bkjsyl": cx_bkjsyl.Parent = null; break;
+                case "ml_awr": ml_awr.Parent = null; break;
                 default: break;
             }
             tabControl1.SelectedTab = welcome;
@@ -160,6 +163,11 @@ namespace oracleTool
         {
             cx_bkjsyl.Parent = tabControl1;
             tabControlPages(cx_bkjsyl);
+            
+        }
+
+        private void bkjcx_Click(object sender, EventArgs e)
+        {
             //TBS 表空间名, SUM(TOTALM) 总共大小M, SUM(USEDM) 已使用空间M, SUM(REMAINEDM) 剩余空间M
             //, ROUND(SUM(USEDM)/SUM(TOTALM)*100,4) 已使用百分比  , ROUND(SUM(REMAINEDM)/SUM(TOTALM)*100,4) 剩余百分比
             string sql = "SELECT TBS t1, SUM(TOTALM) t2, SUM(USEDM) t3, SUM(REMAINEDM) t4, ROUND(SUM(USEDM)/SUM(TOTALM)*100,4) t5 "
@@ -187,14 +195,14 @@ namespace oracleTool
             //dataGridView1.DataSource = dt;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                dataGridView1.Rows[i].Cells["index"].Value = i+1;
+                dataGridView1.Rows[i].Cells["index"].Value = i + 1;
                 dataGridView1.Rows[i].Cells["表空间名"].Value = dt.Rows[i]["t1"].ToString();
-                dataGridView1.Rows[i].Cells["总共大小"].Value = dt.Rows[i]["t2"].ToString()+"M";
+                dataGridView1.Rows[i].Cells["总共大小"].Value = dt.Rows[i]["t2"].ToString() + "M";
                 dataGridView1.Rows[i].Cells["已使用空间"].Value = dt.Rows[i]["t3"].ToString() + "M";
                 dataGridView1.Rows[i].Cells["剩余空间"].Value = dt.Rows[i]["t4"].ToString() + "M";
                 dataGridView1.Rows[i].Cells["已使用百分比"].Value = dt.Rows[i]["t5"].ToString() + "%";
                 dataGridView1.Rows[i].Cells["剩余百分比"].Value = dt.Rows[i]["t6"].ToString() + "%";
-                if (Convert.ToDouble(dt.Rows[i]["t5"].ToString()) > 95.00 )
+                if (Convert.ToDouble(dt.Rows[i]["t5"].ToString()) > 95.00)
                 {
                     dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                 }
@@ -252,7 +260,7 @@ namespace oracleTool
                     dt = ds.Tables[0];
                 }
                 string str = "";
-                for (int i = 0; i < dt.Rows.Count;i++ )
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     str += dt.Rows[i]["file_name"].ToString() + "\n";
                 }
@@ -260,5 +268,63 @@ namespace oracleTool
                 mess.ShowDialog();
             }
         }
+
+        Process cmdExe = null;
+        private void srartCmd_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(cmdEdit.Text))
+            {
+                MessageBox.Show("选择需要执行的sql文件!");
+                return;
+            }
+            if (String.IsNullOrEmpty(sysPass.Text))
+            {
+                MessageBox.Show("此功能需要sys用户密码!");
+                return;
+            }
+
+            cmdExe = new Process();//创建进程对象  
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = @"sqlplus.exe";//设定需要执行的命令  
+            startInfo.Arguments = @"-s sys/gtis@" + database.Text + " as sysdba @" + cmdEdit.Text;//“/C”表示执行完命令后马上退出  
+            cmdExe.StartInfo = startInfo;
+            try
+            {
+                cmdExe.Start();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("请检查本地是否安装sqlplus工具!");
+            }
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmdExe != null)
+                {
+                    cmdExe.Kill();
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;//该值确定是否可以选择多个文件
+            dialog.Title = "请选择文件";
+            dialog.Filter = "sql文件(awrrpt.sql)|awrrpt.sql";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                cmdEdit.Text = dialog.FileName;
+            }
+        }
+
+
     }
 }

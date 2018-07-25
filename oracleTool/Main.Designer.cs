@@ -49,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.about = new System.Windows.Forms.TabPage();
             this.关闭当前页面 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.关闭页面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,10 +56,26 @@
             this.mhelp = new System.Windows.Forms.TabPage();
             this.helpText = new System.Windows.Forms.RichTextBox();
             this.cx_bkjsyl = new System.Windows.Forms.TabPage();
+            this.bkjcx = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.表空间名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.总共大小 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.已使用空间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.剩余空间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.已使用百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.剩余百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cx_bkjszwz = new System.Windows.Forms.TabPage();
             this.cx_maxcostsql = new System.Windows.Forms.TabPage();
             this.ml_awr = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.sysPass = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cmdLogTextArea = new System.Windows.Forms.RichTextBox();
+            this.cmdEdit = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.srartCmd = new System.Windows.Forms.Button();
             this.bak_bf = new System.Windows.Forms.TabPage();
             this.bak_hy = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -83,22 +98,15 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.表空间名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.总共大小 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.已使用空间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.剩余空间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.已使用百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.剩余百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.welcome.SuspendLayout();
             this.about.SuspendLayout();
             this.关闭当前页面.SuspendLayout();
             this.mhelp.SuspendLayout();
             this.cx_bkjsyl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ml_awr.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -243,7 +251,6 @@
             // 
             // welcome
             // 
-            this.welcome.Controls.Add(this.button1);
             this.welcome.Location = new System.Drawing.Point(4, 22);
             this.welcome.Name = "welcome";
             this.welcome.Padding = new System.Windows.Forms.Padding(3);
@@ -251,15 +258,6 @@
             this.welcome.TabIndex = 1;
             this.welcome.Text = "欢迎";
             this.welcome.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(311, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "welcome";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // about
             // 
@@ -330,6 +328,7 @@
             // cx_bkjsyl
             // 
             this.cx_bkjsyl.ContextMenuStrip = this.关闭当前页面;
+            this.cx_bkjsyl.Controls.Add(this.bkjcx);
             this.cx_bkjsyl.Controls.Add(this.dataGridView1);
             this.cx_bkjsyl.Location = new System.Drawing.Point(4, 22);
             this.cx_bkjsyl.Name = "cx_bkjsyl";
@@ -338,6 +337,16 @@
             this.cx_bkjsyl.TabIndex = 4;
             this.cx_bkjsyl.Text = "表空间使用率查询";
             this.cx_bkjsyl.UseVisualStyleBackColor = true;
+            // 
+            // bkjcx
+            // 
+            this.bkjcx.Location = new System.Drawing.Point(9, 18);
+            this.bkjcx.Name = "bkjcx";
+            this.bkjcx.Size = new System.Drawing.Size(75, 23);
+            this.bkjcx.TabIndex = 1;
+            this.bkjcx.Text = "查询";
+            this.bkjcx.UseVisualStyleBackColor = true;
+            this.bkjcx.Click += new System.EventHandler(this.bkjcx_Click);
             // 
             // dataGridView1
             // 
@@ -363,6 +372,77 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
+            // index
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.index.DefaultCellStyle = dataGridViewCellStyle1;
+            this.index.HeaderText = "序号";
+            this.index.Name = "index";
+            this.index.ReadOnly = true;
+            this.index.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.index.Width = 60;
+            // 
+            // 表空间名
+            // 
+            this.表空间名.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.表空间名.DefaultCellStyle = dataGridViewCellStyle2;
+            this.表空间名.HeaderText = "表空间名";
+            this.表空间名.Name = "表空间名";
+            this.表空间名.ReadOnly = true;
+            this.表空间名.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 总共大小
+            // 
+            this.总共大小.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.总共大小.DefaultCellStyle = dataGridViewCellStyle3;
+            this.总共大小.HeaderText = "总共大小M";
+            this.总共大小.Name = "总共大小";
+            this.总共大小.ReadOnly = true;
+            this.总共大小.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 已使用空间
+            // 
+            this.已使用空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.已使用空间.DefaultCellStyle = dataGridViewCellStyle4;
+            this.已使用空间.HeaderText = "已使用空间M";
+            this.已使用空间.Name = "已使用空间";
+            this.已使用空间.ReadOnly = true;
+            this.已使用空间.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 剩余空间
+            // 
+            this.剩余空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.剩余空间.DefaultCellStyle = dataGridViewCellStyle5;
+            this.剩余空间.HeaderText = "剩余空间M";
+            this.剩余空间.Name = "剩余空间";
+            this.剩余空间.ReadOnly = true;
+            this.剩余空间.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 已使用百分比
+            // 
+            this.已使用百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.已使用百分比.DefaultCellStyle = dataGridViewCellStyle6;
+            this.已使用百分比.HeaderText = "已使用百分比%";
+            this.已使用百分比.Name = "已使用百分比";
+            this.已使用百分比.ReadOnly = true;
+            this.已使用百分比.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 剩余百分比
+            // 
+            this.剩余百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.剩余百分比.DefaultCellStyle = dataGridViewCellStyle7;
+            this.剩余百分比.HeaderText = "剩余百分比%";
+            this.剩余百分比.Name = "剩余百分比";
+            this.剩余百分比.ReadOnly = true;
+            this.剩余百分比.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // cx_bkjszwz
             // 
             this.cx_bkjszwz.Location = new System.Drawing.Point(4, 22);
@@ -385,6 +465,15 @@
             // 
             // ml_awr
             // 
+            this.ml_awr.ContextMenuStrip = this.关闭当前页面;
+            this.ml_awr.Controls.Add(this.label6);
+            this.ml_awr.Controls.Add(this.sysPass);
+            this.ml_awr.Controls.Add(this.label5);
+            this.ml_awr.Controls.Add(this.button2);
+            this.ml_awr.Controls.Add(this.cmdEdit);
+            this.ml_awr.Controls.Add(this.button3);
+            this.ml_awr.Controls.Add(this.srartCmd);
+            this.ml_awr.Controls.Add(this.cmdLogTextArea);
             this.ml_awr.Location = new System.Drawing.Point(4, 22);
             this.ml_awr.Name = "ml_awr";
             this.ml_awr.Padding = new System.Windows.Forms.Padding(3);
@@ -392,6 +481,91 @@
             this.ml_awr.TabIndex = 7;
             this.ml_awr.Text = "AWR报告导出";
             this.ml_awr.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(8, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "使用帮助:";
+            // 
+            // sysPass
+            // 
+            this.sysPass.Location = new System.Drawing.Point(130, 43);
+            this.sysPass.Name = "sysPass";
+            this.sysPass.PasswordChar = '*';
+            this.sysPass.Size = new System.Drawing.Size(100, 21);
+            this.sysPass.TabIndex = 5;
+            this.sysPass.Text = "gtis";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(8, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "sys用户密码:";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(633, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "awrrpt.sql文件位置";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cmdLogTextArea
+            // 
+            this.cmdLogTextArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdLogTextArea.Location = new System.Drawing.Point(9, 122);
+            this.cmdLogTextArea.Name = "cmdLogTextArea";
+            this.cmdLogTextArea.ReadOnly = true;
+            this.cmdLogTextArea.Size = new System.Drawing.Size(759, 345);
+            this.cmdLogTextArea.TabIndex = 2;
+            this.cmdLogTextArea.Text = "1.选择awrsqrpi.sql存放位置.\n2.填写sys用户密码.(默认gtis)\n3.点击 执行sql 按钮.\n4.在弹出窗口中输入必要信息.\n    4.1" +
+    ".输入导出报告格式(默认html).\n    4.2.输入检测天数.\n    4.3.找到对应的SnapId,并输入开始和结束段ID.\n    4.4.输入导出" +
+    "文件地址和文件名.";
+            // 
+            // cmdEdit
+            // 
+            this.cmdEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdEdit.Location = new System.Drawing.Point(6, 6);
+            this.cmdEdit.Name = "cmdEdit";
+            this.cmdEdit.ReadOnly = true;
+            this.cmdEdit.Size = new System.Drawing.Size(601, 21);
+            this.cmdEdit.TabIndex = 1;
+            this.cmdEdit.Text = "D:\\app\\Administrator\\product\\11.1.0\\db_1\\RDBMS\\ADMIN\\awrrpt.sql";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(633, 46);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "关闭cmd窗口";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // srartCmd
+            // 
+            this.srartCmd.Location = new System.Drawing.Point(532, 46);
+            this.srartCmd.Name = "srartCmd";
+            this.srartCmd.Size = new System.Drawing.Size(75, 23);
+            this.srartCmd.TabIndex = 0;
+            this.srartCmd.Text = "执行sql";
+            this.srartCmd.UseVisualStyleBackColor = true;
+            this.srartCmd.Click += new System.EventHandler(this.srartCmd_Click);
             // 
             // bak_bf
             // 
@@ -565,77 +739,6 @@
             // 
             this.mainFormBindingSource.DataSource = typeof(oracleTool.MainForm);
             // 
-            // index
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.index.DefaultCellStyle = dataGridViewCellStyle1;
-            this.index.HeaderText = "序号";
-            this.index.Name = "index";
-            this.index.ReadOnly = true;
-            this.index.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.index.Width = 60;
-            // 
-            // 表空间名
-            // 
-            this.表空间名.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.表空间名.DefaultCellStyle = dataGridViewCellStyle2;
-            this.表空间名.HeaderText = "表空间名";
-            this.表空间名.Name = "表空间名";
-            this.表空间名.ReadOnly = true;
-            this.表空间名.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // 总共大小
-            // 
-            this.总共大小.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.总共大小.DefaultCellStyle = dataGridViewCellStyle3;
-            this.总共大小.HeaderText = "总共大小M";
-            this.总共大小.Name = "总共大小";
-            this.总共大小.ReadOnly = true;
-            this.总共大小.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // 已使用空间
-            // 
-            this.已使用空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.已使用空间.DefaultCellStyle = dataGridViewCellStyle4;
-            this.已使用空间.HeaderText = "已使用空间M";
-            this.已使用空间.Name = "已使用空间";
-            this.已使用空间.ReadOnly = true;
-            this.已使用空间.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // 剩余空间
-            // 
-            this.剩余空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.剩余空间.DefaultCellStyle = dataGridViewCellStyle5;
-            this.剩余空间.HeaderText = "剩余空间M";
-            this.剩余空间.Name = "剩余空间";
-            this.剩余空间.ReadOnly = true;
-            this.剩余空间.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // 已使用百分比
-            // 
-            this.已使用百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.已使用百分比.DefaultCellStyle = dataGridViewCellStyle6;
-            this.已使用百分比.HeaderText = "已使用百分比%";
-            this.已使用百分比.Name = "已使用百分比";
-            this.已使用百分比.ReadOnly = true;
-            this.已使用百分比.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // 剩余百分比
-            // 
-            this.剩余百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.剩余百分比.DefaultCellStyle = dataGridViewCellStyle7;
-            this.剩余百分比.HeaderText = "剩余百分比%";
-            this.剩余百分比.Name = "剩余百分比";
-            this.剩余百分比.ReadOnly = true;
-            this.剩余百分比.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -651,12 +754,13 @@
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.welcome.ResumeLayout(false);
             this.about.ResumeLayout(false);
             this.关闭当前页面.ResumeLayout(false);
             this.mhelp.ResumeLayout(false);
             this.cx_bkjsyl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ml_awr.ResumeLayout(false);
+            this.ml_awr.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -703,7 +807,6 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.TabPage mhelp;
         private System.Windows.Forms.RichTextBox helpText;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem 最消耗CPU前十语句查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aWR报告导出ToolStripMenuItem;
         private System.Windows.Forms.TabPage cx_bkjsyl;
@@ -724,6 +827,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 剩余空间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 已使用百分比;
         private System.Windows.Forms.DataGridViewTextBoxColumn 剩余百分比;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button srartCmd;
+        private System.Windows.Forms.RichTextBox cmdLogTextArea;
+        private System.Windows.Forms.TextBox cmdEdit;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox sysPass;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button bkjcx;
     }
 }
 
