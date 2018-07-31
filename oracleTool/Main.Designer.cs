@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -65,17 +66,16 @@
             this.剩余空间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.已使用百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.剩余百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cx_bkjszwz = new System.Windows.Forms.TabPage();
             this.cx_maxcostsql = new System.Windows.Forms.TabPage();
             this.ml_awr = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.sysPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.cmdLogTextArea = new System.Windows.Forms.RichTextBox();
             this.cmdEdit = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.srartCmd = new System.Windows.Forms.Button();
+            this.cmdLogTextArea = new System.Windows.Forms.RichTextBox();
             this.bak_bf = new System.Windows.Forms.TabPage();
             this.bak_hy = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -84,8 +84,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.表空间使用率查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.表空间所在位置查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.最消耗CPU前十语句查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.最消耗CPU语句查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aWR报告导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.排查问题ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,10 +93,13 @@
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.使用帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.测试按钮ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.xhcx = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -106,11 +108,12 @@
             this.mhelp.SuspendLayout();
             this.cx_bkjsyl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cx_maxcostsql.SuspendLayout();
             this.ml_awr.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -123,7 +126,6 @@
             this.tabControl1.Controls.Add(this.about);
             this.tabControl1.Controls.Add(this.mhelp);
             this.tabControl1.Controls.Add(this.cx_bkjsyl);
-            this.tabControl1.Controls.Add(this.cx_bkjszwz);
             this.tabControl1.Controls.Add(this.cx_maxcostsql);
             this.tabControl1.Controls.Add(this.ml_awr);
             this.tabControl1.Controls.Add(this.bak_bf);
@@ -374,9 +376,9 @@
             // 
             // index
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.index.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.index.DefaultCellStyle = dataGridViewCellStyle9;
             this.index.HeaderText = "序号";
             this.index.Name = "index";
             this.index.ReadOnly = true;
@@ -386,8 +388,8 @@
             // 表空间名
             // 
             this.表空间名.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.表空间名.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.表空间名.DefaultCellStyle = dataGridViewCellStyle10;
             this.表空间名.HeaderText = "表空间名";
             this.表空间名.Name = "表空间名";
             this.表空间名.ReadOnly = true;
@@ -396,8 +398,8 @@
             // 总共大小
             // 
             this.总共大小.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.总共大小.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.总共大小.DefaultCellStyle = dataGridViewCellStyle11;
             this.总共大小.HeaderText = "总共大小M";
             this.总共大小.Name = "总共大小";
             this.总共大小.ReadOnly = true;
@@ -406,8 +408,8 @@
             // 已使用空间
             // 
             this.已使用空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.已使用空间.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.已使用空间.DefaultCellStyle = dataGridViewCellStyle12;
             this.已使用空间.HeaderText = "已使用空间M";
             this.已使用空间.Name = "已使用空间";
             this.已使用空间.ReadOnly = true;
@@ -416,8 +418,8 @@
             // 剩余空间
             // 
             this.剩余空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.剩余空间.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.剩余空间.DefaultCellStyle = dataGridViewCellStyle13;
             this.剩余空间.HeaderText = "剩余空间M";
             this.剩余空间.Name = "剩余空间";
             this.剩余空间.ReadOnly = true;
@@ -426,8 +428,8 @@
             // 已使用百分比
             // 
             this.已使用百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.已使用百分比.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.已使用百分比.DefaultCellStyle = dataGridViewCellStyle14;
             this.已使用百分比.HeaderText = "已使用百分比%";
             this.已使用百分比.Name = "已使用百分比";
             this.已使用百分比.ReadOnly = true;
@@ -436,31 +438,26 @@
             // 剩余百分比
             // 
             this.剩余百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.剩余百分比.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.剩余百分比.DefaultCellStyle = dataGridViewCellStyle15;
             this.剩余百分比.HeaderText = "剩余百分比%";
             this.剩余百分比.Name = "剩余百分比";
             this.剩余百分比.ReadOnly = true;
             this.剩余百分比.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cx_bkjszwz
-            // 
-            this.cx_bkjszwz.Location = new System.Drawing.Point(4, 22);
-            this.cx_bkjszwz.Name = "cx_bkjszwz";
-            this.cx_bkjszwz.Padding = new System.Windows.Forms.Padding(3);
-            this.cx_bkjszwz.Size = new System.Drawing.Size(776, 473);
-            this.cx_bkjszwz.TabIndex = 5;
-            this.cx_bkjszwz.Text = "表空间所在位置查询";
-            this.cx_bkjszwz.UseVisualStyleBackColor = true;
-            // 
             // cx_maxcostsql
             // 
+            this.cx_maxcostsql.ContextMenuStrip = this.关闭当前页面;
+            this.cx_maxcostsql.Controls.Add(this.dataGridView2);
+            this.cx_maxcostsql.Controls.Add(this.numericUpDown1);
+            this.cx_maxcostsql.Controls.Add(this.label7);
+            this.cx_maxcostsql.Controls.Add(this.xhcx);
             this.cx_maxcostsql.Location = new System.Drawing.Point(4, 22);
             this.cx_maxcostsql.Name = "cx_maxcostsql";
             this.cx_maxcostsql.Padding = new System.Windows.Forms.Padding(3);
             this.cx_maxcostsql.Size = new System.Drawing.Size(776, 473);
             this.cx_maxcostsql.TabIndex = 6;
-            this.cx_maxcostsql.Text = "最消耗CPU前十语句查询";
+            this.cx_maxcostsql.Text = "最消耗CPU语句查询";
             this.cx_maxcostsql.UseVisualStyleBackColor = true;
             // 
             // ml_awr
@@ -522,20 +519,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // cmdLogTextArea
-            // 
-            this.cmdLogTextArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdLogTextArea.Location = new System.Drawing.Point(9, 122);
-            this.cmdLogTextArea.Name = "cmdLogTextArea";
-            this.cmdLogTextArea.ReadOnly = true;
-            this.cmdLogTextArea.Size = new System.Drawing.Size(759, 345);
-            this.cmdLogTextArea.TabIndex = 2;
-            this.cmdLogTextArea.Text = "1.选择awrsqrpi.sql存放位置.\n2.填写sys用户密码.(默认gtis)\n3.点击 执行sql 按钮.\n4.在弹出窗口中输入必要信息.\n    4.1" +
-    ".输入导出报告格式(默认html).\n    4.2.输入检测天数.\n    4.3.找到对应的SnapId,并输入开始和结束段ID.\n    4.4.输入导出" +
-    "文件地址和文件名.";
-            // 
             // cmdEdit
             // 
             this.cmdEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -566,6 +549,20 @@
             this.srartCmd.Text = "执行sql";
             this.srartCmd.UseVisualStyleBackColor = true;
             this.srartCmd.Click += new System.EventHandler(this.srartCmd_Click);
+            // 
+            // cmdLogTextArea
+            // 
+            this.cmdLogTextArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdLogTextArea.Location = new System.Drawing.Point(9, 122);
+            this.cmdLogTextArea.Name = "cmdLogTextArea";
+            this.cmdLogTextArea.ReadOnly = true;
+            this.cmdLogTextArea.Size = new System.Drawing.Size(759, 345);
+            this.cmdLogTextArea.TabIndex = 2;
+            this.cmdLogTextArea.Text = "1.选择awrsqrpi.sql存放位置.\n2.填写sys用户密码.(默认gtis)\n3.点击 执行sql 按钮.\n4.在弹出窗口中输入必要信息.\n    4.1" +
+    ".输入导出报告格式(默认html).\n    4.2.输入检测天数.\n    4.3.找到对应的SnapId,并输入开始和结束段ID.\n    4.4.输入导出" +
+    "文件地址和文件名.";
             // 
             // bak_bf
             // 
@@ -618,8 +615,7 @@
             this.排查问题ToolStripMenuItem,
             this.配置ToolStripMenuItem,
             this.使用帮助ToolStripMenuItem,
-            this.关于ToolStripMenuItem,
-            this.测试按钮ToolStripMenuItem});
+            this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 29);
@@ -630,8 +626,7 @@
             // 
             this.备份ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.表空间使用率查询ToolStripMenuItem,
-            this.表空间所在位置查询ToolStripMenuItem,
-            this.最消耗CPU前十语句查询ToolStripMenuItem});
+            this.最消耗CPU语句查询ToolStripMenuItem});
             this.备份ToolStripMenuItem.Name = "备份ToolStripMenuItem";
             this.备份ToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
             this.备份ToolStripMenuItem.Text = "查询功能";
@@ -643,19 +638,12 @@
             this.表空间使用率查询ToolStripMenuItem.Text = "表空间使用率查询";
             this.表空间使用率查询ToolStripMenuItem.Click += new System.EventHandler(this.表空间使用率查询ToolStripMenuItem_Click);
             // 
-            // 表空间所在位置查询ToolStripMenuItem
+            // 最消耗CPU语句查询ToolStripMenuItem
             // 
-            this.表空间所在位置查询ToolStripMenuItem.Name = "表空间所在位置查询ToolStripMenuItem";
-            this.表空间所在位置查询ToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
-            this.表空间所在位置查询ToolStripMenuItem.Text = "表空间所在位置查询";
-            this.表空间所在位置查询ToolStripMenuItem.Click += new System.EventHandler(this.表空间所在位置查询ToolStripMenuItem_Click);
-            // 
-            // 最消耗CPU前十语句查询ToolStripMenuItem
-            // 
-            this.最消耗CPU前十语句查询ToolStripMenuItem.Name = "最消耗CPU前十语句查询ToolStripMenuItem";
-            this.最消耗CPU前十语句查询ToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
-            this.最消耗CPU前十语句查询ToolStripMenuItem.Text = "最消耗CPU前十语句查询";
-            this.最消耗CPU前十语句查询ToolStripMenuItem.Click += new System.EventHandler(this.最消耗CPU前十语句查询ToolStripMenuItem_Click);
+            this.最消耗CPU语句查询ToolStripMenuItem.Name = "最消耗CPU语句查询ToolStripMenuItem";
+            this.最消耗CPU语句查询ToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.最消耗CPU语句查询ToolStripMenuItem.Text = "最消耗CPU前十语句查询";
+            this.最消耗CPU语句查询ToolStripMenuItem.Click += new System.EventHandler(this.最消耗CPU前十语句查询ToolStripMenuItem_Click);
             // 
             // 查询ToolStripMenuItem
             // 
@@ -697,6 +685,7 @@
             // 
             // 配置ToolStripMenuItem
             // 
+            this.配置ToolStripMenuItem.Enabled = false;
             this.配置ToolStripMenuItem.Name = "配置ToolStripMenuItem";
             this.配置ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
             this.配置ToolStripMenuItem.Text = "配置";
@@ -715,29 +704,88 @@
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
-            // 测试按钮ToolStripMenuItem
+            // xhcx
             // 
-            this.测试按钮ToolStripMenuItem.Name = "测试按钮ToolStripMenuItem";
-            this.测试按钮ToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
-            this.测试按钮ToolStripMenuItem.Text = "测试按钮";
-            this.测试按钮ToolStripMenuItem.Click += new System.EventHandler(this.测试按钮ToolStripMenuItem_Click);
+            this.xhcx.Location = new System.Drawing.Point(253, 18);
+            this.xhcx.Name = "xhcx";
+            this.xhcx.Size = new System.Drawing.Size(75, 23);
+            this.xhcx.TabIndex = 2;
+            this.xhcx.Text = "查询";
+            this.xhcx.UseVisualStyleBackColor = true;
+            this.xhcx.Click += new System.EventHandler(this.xhcx_Click);
             // 
-            // contextMenuStrip2
+            // label7
             // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(119, 30);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 12F);
+            this.label7.Location = new System.Drawing.Point(11, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 16);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "查询条数";
             // 
-            // closeToolStripMenuItem
+            // numericUpDown1
             // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
-            this.closeToolStripMenuItem.Text = "close";
+            this.numericUpDown1.Location = new System.Drawing.Point(89, 18);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(71, 21);
+            this.numericUpDown1.TabIndex = 5;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
-            // mainFormBindingSource
+            // dataGridView2
             // 
-            this.mainFormBindingSource.DataSource = typeof(oracleTool.MainForm);
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dataGridView2.Location = new System.Drawing.Point(6, 47);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(764, 423);
+            this.dataGridView2.TabIndex = 6;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "序号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "耗时";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
+            this.Column3.HeaderText = "sql";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -759,14 +807,16 @@
             this.mhelp.ResumeLayout(false);
             this.cx_bkjsyl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.cx_maxcostsql.ResumeLayout(false);
+            this.cx_maxcostsql.PerformLayout();
             this.ml_awr.ResumeLayout(false);
             this.ml_awr.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -785,9 +835,7 @@
         private System.Windows.Forms.ToolStripMenuItem 排查问题ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 使用帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 测试按钮ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 表空间使用率查询ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 表空间所在位置查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 配置ToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -803,14 +851,11 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ContextMenuStrip 关闭当前页面;
         private System.Windows.Forms.ToolStripMenuItem 关闭页面ToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.TabPage mhelp;
         private System.Windows.Forms.RichTextBox helpText;
-        private System.Windows.Forms.ToolStripMenuItem 最消耗CPU前十语句查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 最消耗CPU语句查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aWR报告导出ToolStripMenuItem;
         private System.Windows.Forms.TabPage cx_bkjsyl;
-        private System.Windows.Forms.TabPage cx_bkjszwz;
         private System.Windows.Forms.TabPage cx_maxcostsql;
         private System.Windows.Forms.TabPage ml_awr;
         private System.Windows.Forms.ToolStripMenuItem 数据库备份ToolStripMenuItem;
@@ -819,7 +864,6 @@
         private System.Windows.Forms.TabPage bak_hy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource mainFormBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn index;
         private System.Windows.Forms.DataGridViewTextBoxColumn 表空间名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 总共大小;
@@ -836,6 +880,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button bkjcx;
+        private System.Windows.Forms.Button xhcx;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
 

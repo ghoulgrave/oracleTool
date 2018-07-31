@@ -31,7 +31,6 @@ namespace oracleTool
             mhelp.Parent = null;
 
             cx_bkjsyl.Parent = null;
-            cx_bkjszwz.Parent = null;
             cx_maxcostsql.Parent = null;
 
             ml_awr.Parent = null;
@@ -159,6 +158,8 @@ namespace oracleTool
             }
         }
 
+        #region 表空间使用率查询
+
         private void 表空间使用率查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cx_bkjsyl.Parent = tabControl1;
@@ -209,18 +210,59 @@ namespace oracleTool
             }
             //dataGridView1.Sort(dataGridView1.Columns["已使用百分比"], ListSortDirection.Descending);
         }
+        #endregion
 
-        private void 表空间所在位置查询ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cx_bkjszwz.Parent = tabControl1;
-            tabControlPages(cx_bkjszwz);
-        }
-
+        #region
         private void 最消耗CPU前十语句查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cx_maxcostsql.Parent = tabControl1;
             tabControlPages(cx_maxcostsql);
         }
+
+        private void xhcx_Click(object sender, EventArgs e)
+        {
+            
+            Int64 iNumber = Convert.ToInt64(numericUpDown1.Value);
+
+            //TBS 表空间名, SUM(TOTALM) 总共大小M, SUM(USEDM) 已使用空间M, SUM(REMAINEDM) 剩余空间M
+            //, ROUND(SUM(USEDM)/SUM(TOTALM)*100,4) 已使用百分比  , ROUND(SUM(REMAINEDM)/SUM(TOTALM)*100,4) 剩余百分比
+            string sql = @"select * from (select v.sql_id,v.child_number, v.sql_text, v.elapsed_time, v.cpu_time,
+               v.disk_reads, rank() over(order by v.cpu_time desc) elapsed_rank from v$sql v) a where elapsed_rank<=" + iNumber;
+            DataTable dt = null;
+            using (OracleCommand cmd = new OracleCommand())
+            {
+                cmd.Connection = CONN;
+                cmd.CommandText = sql;
+                OracleDataAdapter ada = new OracleDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                ada.Fill(ds);
+                dt = ds.Tables[0];
+            }
+            DataView dv = dt.DefaultView;
+            dv.Sort = "elapsed_rank asc";
+            dt = dv.ToTable();
+            //_source.DataSource = dt;
+            dataGridView2.AutoGenerateColumns = false;
+            dataGridView2.RowCount = dt.Rows.Count;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                dataGridView2.Rows[i].Cells["Column1"].Value =  dt.Rows[i]["elapsed_rank"].ToString();
+                dataGridView2.Rows[i].Cells["Column2"].Value = dt.Rows[i]["cpu_time"].ToString() + "ms";
+                dataGridView2.Rows[i].Cells["Column3"].Value = dt.Rows[i]["sql_text"].ToString();
+                //dataGridView2.Rows[i].Cells["已使用空间"].Value = dt.Rows[i]["t3"].ToString() + "M";
+                //dataGridView2.Rows[i].Cells["剩余空间"].Value = dt.Rows[i]["t4"].ToString() + "M";
+                //dataGridView2.Rows[i].Cells["已使用百分比"].Value = dt.Rows[i]["t5"].ToString() + "%";
+                //dataGridView2.Rows[i].Cells["剩余百分比"].Value = dt.Rows[i]["t6"].ToString() + "%";
+                //if (Convert.ToDouble(dt.Rows[i]["t5"].ToString()) > 95.00)
+                //{
+                //    dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                //}
+            }
+            //dataGridView2.Sort(dataGridView2.Columns["已使用百分比"], ListSortDirection.Descending);
+            //dataGridView2.AutoResizeColumns();//自动高度
+        }
+        #endregion
 
         private void aWR报告导出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -324,6 +366,8 @@ namespace oracleTool
                 cmdEdit.Text = dialog.FileName;
             }
         }
+
+
 
 
     }
