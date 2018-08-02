@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -67,6 +67,13 @@
             this.已使用百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.剩余百分比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cx_maxcostsql = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.xhcx = new System.Windows.Forms.Button();
             this.ml_awr = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.sysPass = new System.Windows.Forms.TextBox();
@@ -93,13 +100,15 @@
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.使用帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xhcx = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dcwj = new System.Windows.Forms.Button();
+            this.bcejwz = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cxbming = new System.Windows.Forms.Button();
+            this.xpbtn = new System.Windows.Forms.Button();
+            this.xh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tablename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -109,11 +118,13 @@
             this.cx_bkjsyl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cx_maxcostsql.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.ml_awr.SuspendLayout();
+            this.bak_bf.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -376,9 +387,9 @@
             // 
             // index
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.index.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.index.DefaultCellStyle = dataGridViewCellStyle49;
             this.index.HeaderText = "序号";
             this.index.Name = "index";
             this.index.ReadOnly = true;
@@ -388,8 +399,8 @@
             // 表空间名
             // 
             this.表空间名.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.表空间名.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.表空间名.DefaultCellStyle = dataGridViewCellStyle50;
             this.表空间名.HeaderText = "表空间名";
             this.表空间名.Name = "表空间名";
             this.表空间名.ReadOnly = true;
@@ -398,8 +409,8 @@
             // 总共大小
             // 
             this.总共大小.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.总共大小.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.总共大小.DefaultCellStyle = dataGridViewCellStyle51;
             this.总共大小.HeaderText = "总共大小M";
             this.总共大小.Name = "总共大小";
             this.总共大小.ReadOnly = true;
@@ -408,8 +419,8 @@
             // 已使用空间
             // 
             this.已使用空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.已使用空间.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.已使用空间.DefaultCellStyle = dataGridViewCellStyle52;
             this.已使用空间.HeaderText = "已使用空间M";
             this.已使用空间.Name = "已使用空间";
             this.已使用空间.ReadOnly = true;
@@ -418,8 +429,8 @@
             // 剩余空间
             // 
             this.剩余空间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.剩余空间.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.剩余空间.DefaultCellStyle = dataGridViewCellStyle53;
             this.剩余空间.HeaderText = "剩余空间M";
             this.剩余空间.Name = "剩余空间";
             this.剩余空间.ReadOnly = true;
@@ -428,8 +439,8 @@
             // 已使用百分比
             // 
             this.已使用百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.已使用百分比.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.已使用百分比.DefaultCellStyle = dataGridViewCellStyle54;
             this.已使用百分比.HeaderText = "已使用百分比%";
             this.已使用百分比.Name = "已使用百分比";
             this.已使用百分比.ReadOnly = true;
@@ -438,8 +449,8 @@
             // 剩余百分比
             // 
             this.剩余百分比.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.剩余百分比.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.剩余百分比.DefaultCellStyle = dataGridViewCellStyle55;
             this.剩余百分比.HeaderText = "剩余百分比%";
             this.剩余百分比.Name = "剩余百分比";
             this.剩余百分比.ReadOnly = true;
@@ -459,6 +470,89 @@
             this.cx_maxcostsql.TabIndex = 6;
             this.cx_maxcostsql.Text = "最消耗CPU语句查询";
             this.cx_maxcostsql.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dataGridView2.Location = new System.Drawing.Point(6, 47);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(764, 423);
+            this.dataGridView2.TabIndex = 6;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "序号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "耗时";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle56;
+            this.Column3.HeaderText = "sql";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(89, 18);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(71, 21);
+            this.numericUpDown1.TabIndex = 5;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 12F);
+            this.label7.Location = new System.Drawing.Point(11, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 16);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "查询条数";
+            // 
+            // xhcx
+            // 
+            this.xhcx.Location = new System.Drawing.Point(253, 18);
+            this.xhcx.Name = "xhcx";
+            this.xhcx.Size = new System.Drawing.Size(75, 23);
+            this.xhcx.TabIndex = 2;
+            this.xhcx.Text = "查询";
+            this.xhcx.UseVisualStyleBackColor = true;
+            this.xhcx.Click += new System.EventHandler(this.xhcx_Click);
             // 
             // ml_awr
             // 
@@ -566,6 +660,12 @@
             // 
             // bak_bf
             // 
+            this.bak_bf.Controls.Add(this.xpbtn);
+            this.bak_bf.Controls.Add(this.cxbming);
+            this.bak_bf.Controls.Add(this.label8);
+            this.bak_bf.Controls.Add(this.bcejwz);
+            this.bak_bf.Controls.Add(this.dcwj);
+            this.bak_bf.Controls.Add(this.dataGridView3);
             this.bak_bf.Location = new System.Drawing.Point(4, 22);
             this.bak_bf.Name = "bak_bf";
             this.bak_bf.Padding = new System.Windows.Forms.Padding(3);
@@ -704,88 +804,90 @@
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
-            // xhcx
+            // dataGridView3
             // 
-            this.xhcx.Location = new System.Drawing.Point(253, 18);
-            this.xhcx.Name = "xhcx";
-            this.xhcx.Size = new System.Drawing.Size(75, 23);
-            this.xhcx.TabIndex = 2;
-            this.xhcx.Text = "查询";
-            this.xhcx.UseVisualStyleBackColor = true;
-            this.xhcx.Click += new System.EventHandler(this.xhcx_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 12F);
-            this.label7.Location = new System.Drawing.Point(11, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 16);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "查询条数";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(89, 18);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(71, 21);
-            this.numericUpDown1.TabIndex = 5;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView2.Location = new System.Drawing.Point(6, 47);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(764, 423);
-            this.dataGridView2.TabIndex = 6;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.xh,
+            this.ckbox,
+            this.tablename});
+            this.dataGridView3.Location = new System.Drawing.Point(8, 93);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 23;
+            this.dataGridView3.Size = new System.Drawing.Size(760, 374);
+            this.dataGridView3.TabIndex = 0;
             // 
-            // Column1
+            // dcwj
             // 
-            this.Column1.HeaderText = "序号";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.dcwj.Location = new System.Drawing.Point(593, 8);
+            this.dcwj.Name = "dcwj";
+            this.dcwj.Size = new System.Drawing.Size(75, 23);
+            this.dcwj.TabIndex = 1;
+            this.dcwj.Text = "选择文件夹";
+            this.dcwj.UseVisualStyleBackColor = true;
+            this.dcwj.Click += new System.EventHandler(this.dcwj_Click);
             // 
-            // Column2
+            // bcejwz
             // 
-            this.Column2.HeaderText = "耗时";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.bcejwz.Location = new System.Drawing.Point(126, 10);
+            this.bcejwz.Name = "bcejwz";
+            this.bcejwz.Size = new System.Drawing.Size(461, 21);
+            this.bcejwz.TabIndex = 2;
             // 
-            // Column3
+            // label8
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
-            this.Column3.HeaderText = "sql";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("宋体", 12F);
+            this.label8.Location = new System.Drawing.Point(8, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 16);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "文件导出位置:";
+            // 
+            // cxbming
+            // 
+            this.cxbming.Location = new System.Drawing.Point(11, 50);
+            this.cxbming.Name = "cxbming";
+            this.cxbming.Size = new System.Drawing.Size(75, 23);
+            this.cxbming.TabIndex = 4;
+            this.cxbming.Text = "查询表名";
+            this.cxbming.UseVisualStyleBackColor = true;
+            this.cxbming.Click += new System.EventHandler(this.cxbming_Click);
+            // 
+            // xpbtn
+            // 
+            this.xpbtn.Location = new System.Drawing.Point(126, 50);
+            this.xpbtn.Name = "xpbtn";
+            this.xpbtn.Size = new System.Drawing.Size(75, 23);
+            this.xpbtn.TabIndex = 5;
+            this.xpbtn.Text = "备份";
+            this.xpbtn.UseVisualStyleBackColor = true;
+            this.xpbtn.Click += new System.EventHandler(this.xpbtn_Click);
+            // 
+            // xh
+            // 
+            this.xh.HeaderText = "序号";
+            this.xh.Name = "xh";
+            this.xh.Visible = false;
+            // 
+            // ckbox
+            // 
+            this.ckbox.HeaderText = "复选";
+            this.ckbox.Name = "ckbox";
+            this.ckbox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ckbox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // tablename
+            // 
+            this.tablename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tablename.HeaderText = "表名";
+            this.tablename.Name = "tablename";
+            this.tablename.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -809,14 +911,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.cx_maxcostsql.ResumeLayout(false);
             this.cx_maxcostsql.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ml_awr.ResumeLayout(false);
             this.ml_awr.PerformLayout();
+            this.bak_bf.ResumeLayout(false);
+            this.bak_bf.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -887,6 +992,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox bcejwz;
+        private System.Windows.Forms.Button dcwj;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Button xpbtn;
+        private System.Windows.Forms.Button cxbming;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xh;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ckbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tablename;
     }
 }
 

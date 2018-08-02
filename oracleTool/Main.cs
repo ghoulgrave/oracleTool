@@ -40,13 +40,6 @@ namespace oracleTool
 
             menuStrip1.Visible = false;
         }
-        private void 测试按钮ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //测试按钮
-            //            测试方法
-            MessageBox.Show(username.Text);
-
-        }
 
         private void sure_Click(object sender, EventArgs e)
         {
@@ -210,9 +203,35 @@ namespace oracleTool
             }
             //dataGridView1.Sort(dataGridView1.Columns["已使用百分比"], ListSortDirection.Descending);
         }
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            string tableSpaceName = dataGridView1.Rows[index].Cells["表空间名"].Value.ToString();//读取id  
+            if (!String.IsNullOrEmpty(tableSpaceName))
+            {
+                string sql_base = "select t.file_name from DBA_DATA_FILES t WHERE T.TABLESPACE_NAME='" + tableSpaceName + "'";
+                DataTable dt = null;
+                using (OracleCommand cmd = new OracleCommand())
+                {
+                    cmd.Connection = CONN;
+                    cmd.CommandText = sql_base;
+                    OracleDataAdapter ada = new OracleDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    ada.Fill(ds);
+                    dt = ds.Tables[0];
+                }
+                string str = "";
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    str += dt.Rows[i]["file_name"].ToString() + "\n";
+                }
+                Form mess = new MessageForm(str, tableSpaceName);
+                mess.ShowDialog();
+            }
+        }
         #endregion
 
-        #region
+        #region 最消耗CPU语句查询
         private void 最消耗CPU前十语句查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cx_maxcostsql.Parent = tabControl1;
@@ -264,51 +283,11 @@ namespace oracleTool
         }
         #endregion
 
+        #region aWR报告导出
         private void aWR报告导出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ml_awr.Parent = tabControl1;
             tabControlPages(ml_awr);
-        }
-
-        private void 数据库备份ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bak_bf.Parent = tabControl1;
-            tabControlPages(bak_bf);
-
-        }
-
-        private void 数据库还原ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bak_hy.Parent = tabControl1;
-            tabControlPages(bak_hy);
-
-        }
-
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            int index = dataGridView1.CurrentCell.RowIndex;
-            string tableSpaceName = dataGridView1.Rows[index].Cells["表空间名"].Value.ToString();//读取id  
-            if (!String.IsNullOrEmpty(tableSpaceName))
-            {
-                string sql_base = "select t.file_name from DBA_DATA_FILES t WHERE T.TABLESPACE_NAME='" + tableSpaceName + "'";
-                DataTable dt = null;
-                using (OracleCommand cmd = new OracleCommand())
-                {
-                    cmd.Connection = CONN;
-                    cmd.CommandText = sql_base;
-                    OracleDataAdapter ada = new OracleDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    ada.Fill(ds);
-                    dt = ds.Tables[0];
-                }
-                string str = "";
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    str += dt.Rows[i]["file_name"].ToString() + "\n";
-                }
-                Form mess = new MessageForm(str, tableSpaceName);
-                mess.ShowDialog();
-            }
         }
 
         Process cmdExe = null;
@@ -339,7 +318,17 @@ namespace oracleTool
                 MessageBox.Show("请检查本地是否安装sqlplus工具!");
             }
         }
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;//该值确定是否可以选择多个文件
+            dialog.Title = "请选择文件";
+            dialog.Filter = "sql文件(awrrpt.sql)|awrrpt.sql";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                cmdEdit.Text = dialog.FileName;
+            }
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -354,19 +343,82 @@ namespace oracleTool
             {
             }
         }
+        #endregion
 
-        private void button2_Click(object sender, EventArgs e)
+        #region 数据备份
+        private void 数据库备份ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Multiselect = false;//该值确定是否可以选择多个文件
-            dialog.Title = "请选择文件";
-            dialog.Filter = "sql文件(awrrpt.sql)|awrrpt.sql";
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            bak_bf.Parent = tabControl1;
+            tabControlPages(bak_bf);
+        }
+
+        private void dcwj_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = @"D:\";
+            dialog.Description = "请选择文件路径";
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                cmdEdit.Text = dialog.FileName;
+                bcejwz.Text = dialog.SelectedPath;
             }
         }
 
+        private void cxbming_Click(object sender, EventArgs e)
+        {
+            string sql = "select TABLE_NAME from dba_tables where owner='" + uername.ToUpper() + "'";
+            DataTable dt = null;
+            using (OracleCommand cmd = new OracleCommand())
+            {
+                cmd.Connection = CONN;
+                cmd.CommandText = sql;
+                OracleDataAdapter ada = new OracleDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                ada.Fill(ds);
+                dt = ds.Tables[0];
+            }
+            DataView dv = dt.DefaultView;
+            dv.Sort = "TABLE_NAME asc";
+            dt = dv.ToTable();
+            dataGridView3.AutoGenerateColumns = false;
+            dataGridView3.RowCount = dt.Rows.Count;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                dataGridView3.Rows[i].Cells["xh"].Value = i + 1;
+                dataGridView3.Rows[i].Cells["ckbox"].Value =true;
+                dataGridView3.Rows[i].Cells["tablename"].Value = dt.Rows[i]["TABLE_NAME"].ToString();             
+            }
+        }
+        Process cmdExeExp = null;
+        private void xpbtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(bcejwz.Text))
+            {
+                MessageBox.Show("选择备份文件夹地址");
+                return;
+            }
+            cmdExeExp = new Process();//创建进程对象  
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = @"cmd.exe";//设定需要执行的命令  
+            startInfo.Arguments = @"exp bdcdj_gx/gtis@orcl file = D:\bdcdj_gx.dmp  tables=(djf_dj_log,djf_dj_sj,djf_dj_sqr,djf_dj_ywxx,djt_dj_slsq,hrb_gx_json,hrb_gx_log,ktt_fw_c,ktt_fw_h,ktt_fw_ljz,ktt_fw_zrz,ktt_gzw,ktt_zdjbxx,ktt_zhjbxx,qlf_fw_fdcq_dz_xm,qlf_fw_fdcq_qfsyq,qlf_ql_cfdj,qlf_ql_dyaq,qlf_ql_dyiq,qlf_ql_hysyq,qlf_ql_jsydsyq,qlf_ql_nydsyq,qlf_ql_qtxgql,qlf_ql_tdsyq,qlf_ql_ygdj,qlf_ql_yydj,qlf_ql_zxdj,qlt_fw_fdcq_dz,qlt_fw_fdcq_yz,qlt_ql_gjzwsyq,qlt_ql_lq,zd_cflx,zd_djlx,zd_dybdclx,zd_dyfs,zd_fwjg,zd_fwlx,zd_fwxz,zd_fwyt,zd_gyfs,zd_hxjg,zd_hydb,zd_hysylxa,zd_hysylxb,zd_jzwzt,zd_lz,zd_mjdw,zd_qllx,zd_qlrlx,zd_qlrxz,zd_qlsdfs,zd_qlxz,zd_qszt,zd_sqlx,zd_wjmhdyt,zd_xmxz,zd_xmzt,zd_ygdjlx,zd_zdt,zd_zdtzm,zd_zjlx,ztt_gy_qlr) log = D:\\ExpData_bdcdj_gx.log";//“/C”表示执行完命令后马上退出  
+            cmdExeExp.StartInfo = startInfo;
+            try
+            {
+                cmdExeExp.Start();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("请检查本地是否安装sqlplus工具!");
+            }
+        }
+
+        #endregion
+
+        private void 数据库还原ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bak_hy.Parent = tabControl1;
+            tabControlPages(bak_hy);
+
+        }
 
 
 
